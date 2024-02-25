@@ -1,0 +1,26 @@
+def read_file_line_by_line(file_path):
+    with open(file_path, 'r') as file:
+        for line in file:
+            print(line.strip())
+
+def count_non_t_lines(file_path):
+    with open(file_path, 'r') as file:
+        line_count = 0
+        in_non_t_line = False
+        for line in file:
+            if not line.strip().startswith('T') or in_non_t_line:
+                line_count += 1
+                in_non_t_line = True
+            else:
+                in_non_t_line = False
+        return line_count
+
+
+story_file_path = "story.txt"
+
+print("Task 1: Read file line by line")
+read_file_line_by_line(story_file_path)
+
+print("\nTask 2: Count non-T starting lines")
+non_t_line_count = count_non_t_lines(story_file_path)
+print(f"Number of lines not starting with 'T': {non_t_line_count}")

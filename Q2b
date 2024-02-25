@@ -1,0 +1,24 @@
+
+
+def count_words_in_file(file_path):
+    with open(file_path, 'r') as file:
+        content = file.read()
+        words = re.findall(r'\w+', content.lower())
+        return len(words)
+
+def display_short_words(file_path):
+    with open(file_path, 'r') as file:
+        for line in file:
+            words = line.strip().split()
+            for word in words:
+                if len(word) < 4:
+                    print(word)
+
+story_file_path = "story.txt"
+
+print("Task 1: Count and display total words in a text file")
+total_words = count_words_in_file(story_file_path)
+print(f"Total words in the file: {total_words}")
+
+print("\nTask 2: Display words less than 4 characters")
+display_short_words(story_file_path)

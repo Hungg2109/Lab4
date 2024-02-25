@@ -1,0 +1,20 @@
+# Open a file in read mode
+with open("example_file.txt", "r") as file_handle:
+    # 1. Seek the Beginning of the File
+    file_handle.seek(0)
+    print("Current position after seeking to the beginning: ", file_handle.tell())
+
+    # 2. Seeking The End of File
+    file_handle.seek(0, os.SEEK_END)
+    print("Current position after seeking to the end: ", file_handle.tell())
+
+    # 3. Seek From The Current Position
+    file_handle.seek(10, os.SEEK_CUR)  # Seeking 10 characters ahead from the current position
+    print("Current position after seeking 10 characters ahead: ", file_handle.tell())
+
+    # 4. Seek backward With Negative Offset
+    file_handle.seek(-15, os.SEEK_CUR)  # Seeking 15 characters back from the current position
+    print("Current position after seeking 15 characters back: ", file_handle.tell())
+
+    # 5. Use tell() Function To Get File Handle Position
+    print("Current position before any operation: ", file_handle.tell())

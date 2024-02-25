@@ -1,0 +1,23 @@
+def hash_display(file_path):
+    with open(file_path, 'r') as file:
+        content = file.read()
+        hashed_content = ''.join(f"{char}#" for char in content)
+        print(hashed_content)
+
+def jtoi(file_path):
+    with open(file_path, 'r') as file:
+        content = file.read()
+        corrected_content = content.replace('J', 'I')
+    with open(file_path, 'w') as file:
+        file.write(corrected_content)
+    with open(file_path, 'r') as file:
+        print(file.read())
+
+matter_file_path = "matter.txt"
+words_file_path = "WORDS.TXT"
+
+print("Task 1: Display the content of matter.txt with '#' separators")
+hash_display(matter_file_path)
+
+print("\nTask 2: Correct 'J' to 'I' in the WORDS.TXT file and display the corrected content")
+jtoi(words_file_path)
